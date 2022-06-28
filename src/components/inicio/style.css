@@ -1,0 +1,31 @@
+.carousel-header {
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    width: 100%;
+}
+.bg-blur-creme {
+    background-color: #41464b8f;
+    font-family: 'Comforter';
+
+}
+.inicio{
+    margin-top: 100px;
+    width: 100%;
+    margin: 0 auto;
+    padding-top:2rem;
+    min-height: 100%;
+}
+.inicio h1{
+    font-size: 2rem;
+    color: #000000;
+    text-align: center;
+}
+.inicio img{
+    width: 100%;
+    height: 400px;
+    
+}

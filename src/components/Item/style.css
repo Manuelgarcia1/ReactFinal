@@ -8,7 +8,6 @@
     border-radius: 5px;
     height: 350x;
     width: 350px;
-    
 }
 .producto:hover{
     transition: 0.8s;
@@ -36,4 +35,15 @@
     font-size: 2rem;
     color: #1a202c;
     text-align: center;
+}
+
+.button  {
+    background: rgb(65, 65, 65);
+    border-radius: 10px;
+    margin: 14px;
+    padding: 14px;
+  }
+
+.button:hover{
+    background-color: #7e7d7d;
 }

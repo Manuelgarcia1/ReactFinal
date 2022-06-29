@@ -48,7 +48,7 @@ export const products = [
       stock: 10,
   },
   {
-    id: 6,
+    id: 5,
     img: img5,
     name: "Nike sb",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing",
@@ -57,7 +57,7 @@ export const products = [
     stock: 10,
 },
 {
-    id: 7,
+    id: 6,
     img: img6,
     name: "Nike air max edition limited",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing",

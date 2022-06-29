@@ -2,13 +2,15 @@ import React from "react";
 import "./style.css"
 import {CartWidget} from "../CartWidget/CartWidget";
 import { Link } from 'react-router-dom';
+import { CartContext } from '../../context/CartContext'
+import { useContext } from 'react'
 import 'boxicons';
 
 export const NavBar = () => {
-
+  const { getQuantity } = useContext(CartContext)
   return (
     <header className="header-navbar">
-      <CartWidget />
+        <Link to="/"><CartWidget></CartWidget> </Link>
       <ul>
         <li>
           <Link to="/">Inicio</Link>
@@ -24,7 +26,10 @@ export const NavBar = () => {
         </li>
       </ul>
       <div>
-        <box-icon name='cart-add'></box-icon>
+        <Link className="img-carro" to='/cart'>
+            <box-icon name='cart-add'></box-icon>
+            { getQuantity() }
+        </Link>
       </div>
     </header>
   );

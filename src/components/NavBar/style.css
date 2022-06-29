@@ -37,3 +37,7 @@ header ul li{
 header ul li a{
     font-weight: bold;
 }
+
+.img-carro{
+    display: flex;
+}

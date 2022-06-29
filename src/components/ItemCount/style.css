@@ -1,0 +1,29 @@
+
+.button1 {
+  background-color: #13aa52;
+  border: 1px solid #13aa52;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, .1) 0 2px 4px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  font-family: "Akzidenz Grotesk BQ Medium", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  padding: 10px 25px;
+  text-align: center;
+  margin-top: 5px;
+
+}
+
+.resta{
+    background-color: rgb(177, 83, 83);
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.suma{
+    background-color: rgba(122, 211, 122, 0.815);
+    border-radius: 4px;
+    box-sizing: border-box;
+}

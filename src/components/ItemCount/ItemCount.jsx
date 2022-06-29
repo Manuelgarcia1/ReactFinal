@@ -1,35 +1,28 @@
 import { useState } from 'react'
-
+import "./style.css"
 function ItemCount({stock, initial, onAdd}) {
     const [ count, setCount ] = useState(initial)
 
     function suma() {
-      if (count < stock) {
-        setCount(count + 1)
-      }else{
-        alert('Stock superado')
-      }
+      (count < stock)
+        ? setCount(count + 1)
+        : alert('Stock superado')
     }
-
+  
     function resta() {
-      if (count > initial) {
-        setCount(count - 1)
-      }
+      (count > initial) && setCount(count - 1)
     }
+  
 
   return (
     <>
     <div>
       <div>
-      <button onClick={resta}>-</button>
+        <button className='resta' onClick={resta}>-</button>
         <span className="m-1" >{count}</span>
-        <button onClick={suma}>+</button>
+        <button className='suma' onClick={suma}>+</button>
       </div>
-    
-        <div>
-        <button onClick={()=>onAdd(count)}>Agregar al Carrito</button>
-        </div>
-
+      <button className='button1' onClick={()=>onAdd(count)}>Agregar al Carrito</button>
     </div>
     </>
   )

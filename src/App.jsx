@@ -6,9 +6,11 @@ import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailCont
 import {BrowserRouter, Route, Routes} from 'react-router-dom'
 import Inicio from "./components/inicio/index"
 import Cart from "./components/Cart/cart";
+import { CartProvider } from "./context/CartContext";
 function App( id ) {
   return (
     <div className="App">
+      <CartProvider>
       <BrowserRouter>
       <NavBar key={id}/>
       <Routes>
@@ -35,6 +37,7 @@ function App( id ) {
       } />
       </Routes>
       </BrowserRouter>
+      </CartProvider>
     </div>
   );
 }

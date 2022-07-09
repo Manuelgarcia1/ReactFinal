@@ -1,34 +1,46 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { products } from "../../products"
-import { ItemList } from "../ItemList/ItemList";
 
-export default function ItemListContainer({title, description}) {
+import { ItemList } from "../ItemList/ItemList";
+import { getItemOfCategory, getItems } from '../../service/firestore';
+
+export default function ItemListContainer({ title, description }) {
 
   const [productos, setProductos] = useState([])
 
-  const { categoryId } = useParams()
-  
-  useEffect(() =>{
-    const getProducts = new Promise((resolve, reject) =>{
+  const {categoryId} = useParams();
 
-      if (categoryId === undefined) {
-        resolve(products);
-      }else{
-        const itemCategory = products.filter(categories => {
-          return categories.category === categoryId
+
+  useEffect(() => {
+
+    if (categoryId) {
+      getItemOfCategory(categoryId)
+
+        .then((res) => {
+
+          setProductos(res);
+
+        })
+        .catch((error) => {
+
+          console.log(error);
+
         });
-        resolve(itemCategory);
-      }
-        
-    });
-    getProducts.then((resolve) =>{
-      setProductos(resolve);
-    }).catch((error) => {
-      console.log(error);
-    });
-  }, [categoryId]);
+    } else {
 
+      getItems()
+
+        .then((res) => {
+
+          setProductos(res);
+
+        })
+
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+  }, [categoryId]);
   
 
   return (<>

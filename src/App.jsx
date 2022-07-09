@@ -8,6 +8,7 @@ import Inicio from "./components/inicio/index"
 import Cart from "./components/Cart/cart";
 import { CartProvider } from "./context/CartContext";
 function App( id ) {
+
   return (
     <div className="App">
       <CartProvider>

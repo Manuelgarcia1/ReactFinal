@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 
 import { CartContext } from '../../context/CartContext'
 import "./style.css"
-
+import { Form } from '../Form/Form';
 const Cart = () => {
   const { cart, removeItem, clearCart, totalCost } = useContext(CartContext);
 
@@ -41,6 +41,8 @@ const Cart = () => {
        <p className="total">Total de la compra: ${totalCost()}</p>
 
         <button onClick={clearCart}>Vaciar Carrito</button>
+
+        <Form/>
     
     </div>
   )

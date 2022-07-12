@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import {getFirestore, getDocs, getDoc, doc, query, where, collection} from "firebase/firestore"
+import {getFirestore, getDocs, getDoc, doc, query, where, addDoc, Timestamp, collection } from "firebase/firestore"
 //import { getAnalytics } from "firebase/analytics";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -21,15 +21,11 @@ const firebaseConfig = {
 const appFirebase = initializeApp(firebaseConfig);
 const appFirestore = getFirestore (appFirebase);
 
-export function testDatabase (){
-  console.log (appFirestore)
-}
-
-export async function getItems (){
-
-  const prodCollection = collection (appFirestore, "products");
-
-  const productsSnapshot = await getDocs (prodCollection);
+export async function  getItems(){
+  const productCollection = collection(appFirestore, "products");
+  
+  const productsSnapshot = await getDocs(productCollection);
+  
 
   let respuesta = productsSnapshot.docs.map(doc =>{
     return{
@@ -37,8 +33,12 @@ export async function getItems (){
       id: doc.id
     }
   } );
+
+  
+
   return respuesta;
 }
+
 
 export async function getItemOfCategory(categoryId){
 
@@ -58,14 +58,26 @@ export async function getItemOfCategory(categoryId){
   return respuesta;
 }
 
-
 export async function getAnItem(id){
-  // const productCollection = collection(appFirestore, "products");
+  
   const docref = doc(appFirestore, "products", id )
   const docSnapshot = await getDoc(docref);
   return{
-    ...docSnapshot.data()
+    id:docSnapshot.id, ...docSnapshot.data()
   }
+}
+
+export async function createBuyOrder(dataOrder){
+  const ordersCollection = collection(appFirestore, "orders");
+  const dateTime = Timestamp.now();
+
+  const dataOrderDate = {
+    ...dataOrder,
+    date: dateTime
+  }
+  const orderCreated = await addDoc (ordersCollection, dataOrderDate)
+
+  return orderCreated
 }
 
 

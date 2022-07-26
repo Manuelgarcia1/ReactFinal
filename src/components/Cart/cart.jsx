@@ -16,7 +16,7 @@ const Cart = () => {
       {
         cart.map((item) => (
           <div className='carrito__item'>
-            <img src={item.img} width = "260px" height= "260px" alt="Imagen" />
+            <img src={item.img} width = "340px" height= "340px" alt="Imagen" />
             <h1>{item.name}</h1>
             <p >${item.price}</p>
             
